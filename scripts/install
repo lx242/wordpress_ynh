@@ -232,7 +232,7 @@ $wpcli_alias plugin activate wp-fail2ban-redux $plugin_network
 
 chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
+chown -R $app:$app "$final_path"
 
 #=================================================
 # STORE THE CONFIG FILE CHECKSUM
@@ -242,7 +242,7 @@ chown -R $app:www-data "$final_path"
 ynh_store_file_checksum --file="$final_path/wp-config.php"
 
 chmod 400 "$final_path/wp-config.php"
-chown $app:$app "$final_path/wp-config.php"
+chown root:$app "$final_path/wp-config.php"
 
 #=================================================
 # CREATE A CRON TASK FOR AUTOMATIC UPDATE
